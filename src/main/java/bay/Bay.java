@@ -11,16 +11,10 @@ public class Bay {
 
   private Vehicle vehicle;
 
-  public Bay(String label, int maxWeight, List<String> allowedVehicles) {
+  protected Bay(String label, int maxWeight, List<String> allowedVehicles) {
     this.label = label;
     this.maxWeight = maxWeight;
     this.allowedVehicles = allowedVehicles;
-  }
-
-  public Bay(String label, List<String> allowedVehicles) {
-    this.label = label;
-    this.allowedVehicles = allowedVehicles;
-    this.maxWeight = -1;
   }
 
   public boolean isEmpty() {
@@ -58,5 +52,10 @@ public class Bay {
     }
 
     return label + " contains " + vehicle.getType() + " of weight " + vehicle.getWeight();
+  }
+
+  // Instansierar vi builder:n
+  public static BayBuilder builder() {
+    return new BayBuilder();
   }
 }

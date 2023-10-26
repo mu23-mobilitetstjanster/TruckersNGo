@@ -1,6 +1,6 @@
 package vehicle;
 
-public class Truck extends Vehicle {
+public abstract class Truck extends Vehicle {
 
   private static final int HEAVY_TRUCK_WEIGHT = 5000;
 
