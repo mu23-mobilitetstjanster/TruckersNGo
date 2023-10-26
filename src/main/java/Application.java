@@ -2,6 +2,8 @@ import bay.Bay;
 import types.VehicleType;
 import vehicle.HeavyTruck;
 import vehicle.Van;
+import vehicle.Vehicle;
+import vehicle.VehicleFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,20 @@ public class Application {
 
   public static void main(String[] args) {
 
+    List<Bay> bays = createBays();
+
+    bays.get(0).parkVehicle(VehicleFactory.createVan(3000));
+    bays.get(4).parkVehicle(VehicleFactory.createHeavyTruck(9000));
+
+    for(Bay bay : bays) {
+      System.out.println(bay);
+    }
+  }
+
+
+
+
+  public static List<Bay> createBays() {
     List<Bay> bays = new ArrayList<>();
 
     Bay bayA = Bay.builder()
@@ -47,12 +63,6 @@ public class Application {
     bays.add(bayD);
     bays.add(bayE);
 
-
-    bays.get(0).parkVehicle(new Van(3000));
-    bays.get(4).parkVehicle(new HeavyTruck(9000));
-
-    for(Bay bay : bays) {
-      System.out.println(bay);
-    }
+    return bays;
   }
 }
